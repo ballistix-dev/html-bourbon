@@ -1,0 +1,46 @@
+label {
+  //margin-bottom: 0!important;
+  font-weight: 400;
+}
+#{$all-text-inputs}, select {
+  background-color: transparent;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  box-sizing: border-box;
+  transition: border-color $base-duration $base-timing;
+  width: 100%;
+  display: inline-block;
+  min-height: 2.4em;
+  &:hover {
+    border-color: shade($base-border-color, 20%);
+  }
+
+  &:focus {
+    border-color: $action-color;
+    box-shadow: $form-box-shadow-focus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: shade($base-background-color, 5%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $base-border;
+    }
+  }
+
+  &::placeholder {
+    color: $medium-gray;
+  }
+
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("https://cdnjs.cloudflare.com/ajax/libs/kule.lazy/3.1.161102/css/img/kule/select-arrow-small.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "bourbon",
+  "version": "1.0.0",
+  "authors": [
+    "marcelbadua <bitterdash@gmail.com>"
+  ],
+  "description": "_bourbon",
+  "main": "gulpfile.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {}
+}

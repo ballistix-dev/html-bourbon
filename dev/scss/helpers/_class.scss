@@ -1,0 +1,30 @@
+.container {
+    padding-right: $gutter;
+    padding-left: $gutter;
+
+    @include outer-container();
+}
+
+.alignleft,
+img.alignleft {
+    display: inline;
+    float: left;
+
+    margin-right: $gutter;
+}
+.alignright,
+img.alignright {
+    display: inline;
+    float: right;
+
+    margin-left: $gutter;
+}
+
+.aligncenter,
+img.aligncenter {
+    display: block;
+    clear: both;
+
+    margin-right: auto;
+    margin-left: auto;
+}

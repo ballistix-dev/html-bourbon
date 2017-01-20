@@ -1,0 +1,47 @@
+@mixin button-variant ($background-color, $color) {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $font-weight;
+    line-height: 1;
+
+    display: inline-block;
+
+    padding: $small-spacing $base-spacing;
+
+    cursor: pointer;
+    user-select: none;
+    transition: background-color $base-duration $base-timing;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+
+    color: $color;
+    border: 0;
+    border-radius: $base-border-radius;
+    background-color: $background-color;
+
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    &:hover,
+    &:focus {
+        color: $color;
+        background-color: shade($background-color, 20%);
+    }
+    &:disabled {
+        cursor: not-allowed;
+
+        opacity: .5;
+        &:hover {
+            
+        }
+    }
+}
+
+.button {
+    @include button-variant($primary-color, $light-gray);
+    &.button-block {
+        display: block;
+
+        text-align: center;
+    }
+}

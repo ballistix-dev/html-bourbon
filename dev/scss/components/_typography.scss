@@ -1,0 +1,79 @@
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+
+    color: $base-font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font-family;
+    font-size: modular-scale(1);
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+
+    margin: 0 0 $small-spacing;
+}
+
+h1 {
+    font-size: 3.157em;
+}
+
+h2 {
+    font-size: 2.369em;
+}
+
+h3 {
+    font-size: 1.777em;
+}
+
+h4 {
+    font-size: 1.333em;
+}
+
+small {
+    font-size: .75em;
+}
+
+p,
+span {
+    font-weight: $font-weight;
+}
+
+p {
+    margin: 0 0 $small-spacing;
+}
+
+a {
+    transition: color $base-duration $base-timing;
+    text-decoration: none;
+
+    color: $action-color;
+    &:active,
+    &:focus,
+    &:hover {
+        color: shade($action-color, 25%);
+    }
+}
+hr {
+    margin: $base-spacing 0;
+
+    border-top: 0;
+    border-right: 0;
+    border-bottom: $base-border;
+    border-left: 0;
+}
+// blockquote {
+//     //background-color: darken($base-body-color, 3%);
+//     // @include border-left(solid 5px $link-color);
+//     // font-style: italic;
+//     // padding: 20px;
+// }
+// cite {
+//     font-style: italic;
+// }

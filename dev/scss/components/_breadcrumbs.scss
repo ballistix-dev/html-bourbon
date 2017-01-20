@@ -1,0 +1,18 @@
+.breadcrumb {   
+  display: table;
+  padding: 0;
+  list-style: none;
+  > li {
+    display: table-cell;
+    > a {
+      display: inline-block;
+      margin-right: $small-spacing;
+      text-decoration: none;
+      &:after {
+        font-family: "FontAwesome";
+        content: '\f101';
+        margin-left: $small-spacing;
+      }
+    }
+  }
+}
