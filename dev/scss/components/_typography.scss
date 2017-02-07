@@ -12,32 +12,38 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $heading-font-family;
-    font-size: modular-scale(1);
+    font-family: $heading-font-family;    
     font-weight: $heading-font-weight;
     line-height: $heading-line-height;
 
-    margin: 0 0 $small-spacing;
 }
 
 h1 {
-    font-size: 3.157em;
+    font-size: modular-scale(4);
 }
 
 h2 {
-    font-size: 2.369em;
+    font-size: modular-scale(3);
 }
 
 h3 {
-    font-size: 1.777em;
+    font-size: modular-scale(2);
 }
 
 h4 {
-    font-size: 1.333em;
+    font-size: modular-scale(1);
+}
+
+h5 {
+    font-size: modular-scale(0);
+}
+
+h6 {
+    font-size: modular-scale(-1);
 }
 
 small {
-    font-size: .75em;
+    font-size: modular-scale(-1);
 }
 
 p,
@@ -50,7 +56,6 @@ p {
 }
 
 a {
-    transition: color $base-duration $base-timing;
     text-decoration: none;
 
     color: $action-color;
@@ -68,12 +73,26 @@ hr {
     border-bottom: $base-border;
     border-left: 0;
 }
-// blockquote {
-//     //background-color: darken($base-body-color, 3%);
-//     // @include border-left(solid 5px $link-color);
-//     // font-style: italic;
-//     // padding: 20px;
-// }
+code {
+    background-color: $base-background-color;
+    @include pad(0.25em 0.5em);
+    line-height: 1;
+    color: tint($success-color, 20);
+}
+pre {
+    background-color: $base-background-color;
+    @include pad($base-spacing $gutter);
+}
+address {
+    margin-bottom: $base-spacing;
+}
+blockquote {
+    margin: 0;
+    background-color: $base-background-color;
+    border-left: solid 5px $action-color;
+    font-style: italic;
+    padding: 20px;
+}
 // cite {
 //     font-style: italic;
 // }

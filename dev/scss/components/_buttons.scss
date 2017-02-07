@@ -37,7 +37,7 @@
     }
 }
 
-.button {
+.button, button, input[type="submit"] {
     @include button-variant($primary-color, $light-gray);
     &.button-block {
         display: block;

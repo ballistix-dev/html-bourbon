@@ -1,3 +1,73 @@
 #site-header {
+	
+	padding-top: $base-spacing*2;
+	padding-bottom: $base-spacing*2;
+	
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&:after {
+			display: none;
+		}
+	}
+	#brand {
 
+	}
+	#menu-main {
+		float: right;
+
+		.menu {
+		    margin: 0;
+		    padding: 0;
+		    list-style: none;
+		    a {
+		        display: block;
+		        @include pad($small-spacing $gutter);
+		        background-color: transparent;
+		    }
+		    > li {
+		        display: inline-block;
+		        position: relative;
+		        > a {
+		            text-align: center;
+		        }
+		    }
+		    .menu-item-has-children {
+		        > a {
+		            &:after {
+		                font-family: 'sans-serif';
+		                content: '+';
+		                margin-left: $gutter;
+		            }
+		        }
+		        .sub-menu {
+		            display: none;
+		            position: absolute;
+		            top: 100%;
+		            left: 0;
+		            margin: 0;
+		            padding: 0;
+		            list-style: none;
+		            background-color: $light-gray;
+		            border: $base-border;
+		            z-index: 1000;
+		            a {
+		                min-width: 10em;
+		                &:hover {
+		                    background-color: darken($light-gray, 5);
+		                }
+		            }
+		        }
+		        &.is-active {
+		            > a{
+		                background-color: $light-gray;
+		            }
+		            .sub-menu {
+		                display: block;
+		            }
+		        }
+		    }
+		}
+	}
 }

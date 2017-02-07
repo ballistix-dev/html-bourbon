@@ -25,10 +25,11 @@ $base-z-index: 0;
 
 // Colors
 
-$primary-color: #EE3D33;
+$primary-color: #FF5722;
 $danger-color: #EE3D33;
 $warning-color: #f07f0a;
 $info-color: #009fee;
+$success-color: #1565C0;
 
 $dark-gray: #464646;
 $medium-gray: #999;
@@ -44,7 +45,7 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
-$base-background-color: lighten($light-gray, 10%);
+$base-background-color: lighten($light-gray, 5);
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
@@ -54,8 +55,8 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 $base-duration: 0.25s;
 $base-timing: ease-in-out;
 
-//$max-width: 1200px;
-//$grid: 100%/12;
+$max-width: 1200px;
+$grid: 100%/12;
 
 @import "bourbon";
 @import "neat";
@@ -82,5 +83,6 @@ $base-timing: ease-in-out;
 @import "layout/general";
 @import "layout/footer";
 @import "layout/header";
+@import "layout/loops";
 
 @import "helpers/class";

@@ -28,3 +28,18 @@ img.aligncenter {
     margin-right: auto;
     margin-left: auto;
 }
+
+.menu {
+    margin: 0 0 $base-spacing;
+    padding: 0;
+    list-style: none;
+    li {
+        a {
+            display: block;
+            @include pad(0.25em 0.5em);
+        }
+    }
+    .sub-menu {
+        list-style: none;        
+    }
+}

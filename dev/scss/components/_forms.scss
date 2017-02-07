@@ -1,6 +1,7 @@
 label {
-  //margin-bottom: 0!important;
   font-weight: 400;
+  margin-bottom: $small-spacing/2;
+  display: inline-block;
 }
 #{$all-text-inputs}, select {
   background-color: transparent;
@@ -11,7 +12,9 @@ label {
   transition: border-color $base-duration $base-timing;
   width: 100%;
   display: inline-block;
-  min-height: 2.4em;
+  padding: $small-spacing;
+  font-size: $base-font-size;
+  margin-bottom: $small-spacing;
   &:hover {
     border-color: shade($base-border-color, 20%);
   }
