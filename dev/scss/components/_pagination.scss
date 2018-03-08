@@ -8,7 +8,7 @@
         > .page-numbers {
             display: inline-block;
             text-decoration: none;
-            @include pad($small-spacing/1.75 $small-spacing);
+            @include padding($small-spacing/1.75 $small-spacing);
             
             border: $base-border;
             line-height: 1;

@@ -1,0 +1,14 @@
+#site-content{
+  section {
+    padding-top: $base-spacing;
+    padding-bottom: $base-spacing;
+  }
+  #menu4 {
+    .row {
+      justify-content: space-between;
+      .col {
+        flex-basis: 30%;
+      }
+    }
+  }
+}

@@ -1,73 +1,53 @@
 #site-header {
-	
-	padding-top: $base-spacing*2;
-	padding-bottom: $base-spacing*2;
-	
-	.container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		&:after {
-			display: none;
-		}
-	}
-	#brand {
+  padding-top: $base-spacing;
+  padding-bottom: $base-spacing;
+  margin-bottom: $base-spacing;
+  background-color: black;
+  transition: all $base-duration $base-timing;
+  position: relative;
+  .toggle-menu{
+    float: right;
+    background-color: transparent;
+    @include desktop {
+      display: none;
+    }
+  }
+  .brand {
+    color: white;
+    text-transform: uppercase;
+    margin-top: $base-spacing;
+    margin-bottom: $base-spacing;
+    @include desktop {
+      font-size: modular-scale(2);
+    }
+  }
 
-	}
-	#menu-main {
-		float: right;
 
-		.menu {
-		    margin: 0;
-		    padding: 0;
-		    list-style: none;
-		    a {
-		        display: block;
-		        @include pad($small-spacing $gutter);
-		        background-color: transparent;
-		    }
-		    > li {
-		        display: inline-block;
-		        position: relative;
-		        > a {
-		            text-align: center;
-		        }
-		    }
-		    .menu-item-has-children {
-		        > a {
-		            &:after {
-		                font-family: 'sans-serif';
-		                content: '+';
-		                margin-left: $gutter;
-		            }
-		        }
-		        .sub-menu {
-		            display: none;
-		            position: absolute;
-		            top: 100%;
-		            left: 0;
-		            margin: 0;
-		            padding: 0;
-		            list-style: none;
-		            background-color: $light-gray;
-		            border: $base-border;
-		            z-index: 1000;
-		            a {
-		                min-width: 10em;
-		                &:hover {
-		                    background-color: darken($light-gray, 5);
-		                }
-		            }
-		        }
-		        &.is-active {
-		            > a{
-		                background-color: $light-gray;
-		            }
-		            .sub-menu {
-		                display: block;
-		            }
-		        }
-		    }
-		}
-	}
+  &.is-scrolled {
+    position: fixed;
+    z-index: 1982;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgba(0,0,0,0.95);
+  }
+
+  @include desktop {
+    .container {
+      .row {
+        align-items: center;
+        .brand {
+          flex-basis: auto;
+        }
+        nav {
+          flex-basis: auto;
+          text-align: right;
+        }
+      }
+    }
+  }
 }

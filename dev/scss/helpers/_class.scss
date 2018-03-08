@@ -1,45 +1,24 @@
-.container {
-    padding-right: $gutter;
-    padding-left: $gutter;
-
-    @include outer-container();
+.text-action {
+  color: $action-color;
 }
-
-.alignleft,
-img.alignleft {
-    display: inline;
-    float: left;
-
-    margin-right: $gutter;
+.uppercase {
+  text-transform: uppercase;
 }
-.alignright,
-img.alignright {
-    display: inline;
-    float: right;
-
-    margin-left: $gutter;
+.view-on-mobile{
+  display: block;
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
 }
-
-.aligncenter,
-img.aligncenter {
+.view-on-tablet{
+  display: none;
+  @include tablet {
     display: block;
-    clear: both;
-
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.menu {
-    margin: 0 0 $base-spacing;
-    padding: 0;
-    list-style: none;
-    li {
-        a {
-            display: block;
-            @include pad(0.25em 0.5em);
-        }
-    }
-    .sub-menu {
-        list-style: none;        
-    }
+  }
+  @include desktop {
+    display: block;
+  }
 }

@@ -1,88 +1,29 @@
-// Breakpoints
-$mobile: 375px + 1;
-$tablet: 768px + 1;
-
-// Typography
-$base-font-family: 'Open Sans', sans-serif;
-$heading-font-family: $base-font-family;
-
-// Font Sizes
-$base-font-size: 14px;
-
-// Line height
-$base-line-height: 1.4;
-$heading-line-height: 1.2;
-
-//Weight
-$font-weight: 300;
-$heading-font-weight: 600;
-
-// Other Sizes
-$base-border-radius: 4px;
-$base-spacing: $base-line-height * 1em;
-$small-spacing: $base-spacing / 2;
-$base-z-index: 0;
-
-// Colors
-
-$primary-color: #FF5722;
-$danger-color: #EE3D33;
-$warning-color: #f07f0a;
-$info-color: #009fee;
-$success-color: #1565C0;
-
-$dark-gray: #464646;
-$medium-gray: #999;
-$light-gray: #ebebeb;
-
-
-// Font Colors
-$base-font-color: #333333;
-$action-color: $primary-color;
-
-// Border
-$base-border-color: $light-gray;
-$base-border: 1px solid $base-border-color;
-
-// Background Colors
-$base-background-color: lighten($light-gray, 5);
-
-// Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
-
-// Animations
-$base-duration: 0.25s;
-$base-timing: ease-in-out;
-
-$max-width: 1200px;
-$grid: 100%/12;
-
 @import "bourbon";
-@import "neat";
 
-@import "layout/layout";
+@import "helpers/mixin";
+@import "helpers/font";
 
-@import "components/typography";
+@import "variables";
+@import "helpers/class";
 
-@import "components/lists";
+@import "bitters/buttons";
+@import "bitters/forms";
+@import "bitters/layout";
+@import "bitters/lists";
+@import "bitters/media";
+@import "bitters/tables";
+@import "bitters/typography";
+
+@import "components/back-to-top";
 @import "components/buttons";
 @import "components/forms";
-@import "components/media";
-
-@import "components/breadcrumbs";
-@import "components/tables";
-@import "components/pagination";
 @import "components/hamburger";
-@import "components/back-to-top";
+@import "components/menu";
+//@import "components/pagination";
 
-//@import "vendors/fancybox";
-//@import "vendors/prettyPhoto";
-//@import "vendors/bxslider";
-
-@import "layout/general";
-@import "layout/footer";
+@import "layout/base";
+@import "layout/content";
 @import "layout/header";
-@import "layout/loops";
+@import "layout/footer";
 
-@import "helpers/class";
+@import "vendors/mautic";

@@ -1,3 +1,5 @@
+// npm install --save-dev browser-sync gulp gulp-concat gulp-cssmin gulp-jquery-closure gulp-load-plugins gulp-notify gulp-plumber gulp-sass gulp-uglify gulp-util bourbon node-normalize-scss
+
 var basePaths = {
     src: 'dev/',
     dest: 'dist/',
@@ -11,6 +13,10 @@ var paths = {
     styles: {
         src: basePaths.src + 'scss/',
         dest: basePaths.dest + 'css/'
+    },
+    images: {
+        src: basePaths.src + 'psd/SUP-Innovation-landing-page-7-assets/',
+        dest: basePaths.dest + 'img/'
     }
 };
 
@@ -38,7 +44,7 @@ var sassStyle = 'compressed';
 var sourceMap = false;
 
 var normalize = require('node-normalize-scss').includePaths,
-    neat = require('node-neat').includePaths;
+    bourbon = require('bourbon').includePaths;
 
 if(gutil.env.dev === true) {
     sassStyle = 'expanded';
@@ -60,19 +66,19 @@ var reportError = function (error) {
         );
 
     this.emit('end');
-}
+};
 
-gulp.task('css', function(){
+gulp.task('styles', function(){
 
     gulp.src( paths.styles.src + 'styles.scss' )
-    
+
         .pipe(plugins.plumber({
             errorHandler: reportError
         }))
 
         .pipe(plugins.sass({
             outputStyle: 'compressed',
-            includePaths: ['./bower_components/bitters/core/'].concat(normalize, neat),
+            includePaths: [''].concat(normalize, bourbon),
             })
         )
         .pipe(plugins.concat('styles.min.css'))
@@ -91,19 +97,47 @@ gulp.task('scripts', function(){
         .pipe(browserSync.stream());
 });
 
+gulp.task('imagemin', () =>
+    gulp.src(paths.images.src + '*')
+        .pipe(plugins.imagemin([
+            plugins.imagemin.gifsicle({interlaced: true}),
+            plugins.imagemin.jpegtran({progressive: true}),
+            plugins.imagemin.optipng({optimizationLevel: 5}),
+            plugins.imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest(paths.images.dest))
+);
 
-gulp.task('watch', ['css', 'scripts'], function(){
-    gulp.watch(appFiles.styles, ['css']);
+
+gulp.task('watch', ['styles', 'scripts'], function(){
+    gulp.watch(appFiles.styles, ['styles']);
     gulp.watch(appFiles.scripts, ['scripts']);
 });
 
-gulp.task('serve', ['css', 'scripts', 'watch'], function () {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
+gulp.task('serve', ['styles', 'scripts', 'watch'], function () {
+
+
+    if(basePaths.proxy) {
+        browserSync.init({
+            proxy: basePaths.proxy,
+            host: "192.168.0.107"
+        });
+    } else {
+        browserSync.init({
+            host: "192.168.0.107",
+            server: {
+                baseDir: "./"
+
+            }
+        });
+    }
+
     gulp.watch(appFiles.files).on('change', reload);
 });
 
-gulp.task('default', ['css', 'scripts']);
+gulp.task('default', ['styles', 'scripts']);

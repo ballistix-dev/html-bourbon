@@ -1,0 +1,28 @@
+.container {
+  @include clearfix;
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  > .row {
+    @include desktop {
+      margin-left: -$base-spacing;
+      margin-right: -$base-spacing;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &:after {
+        display: none;
+      }
+
+      > * {
+        flex-basis: 50%;
+        padding-left: $base-spacing;
+        padding-right: $base-spacing;
+      }
+    }
+  }
+}

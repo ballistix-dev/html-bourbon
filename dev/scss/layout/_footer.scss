@@ -1,46 +1,8 @@
 #site-footer {
-	
-	padding-top: $base-spacing*2;
-	padding-bottom: $base-spacing*2;
-
-	background-color: $dark-gray;
-
-	p, span, li, td, address, label {
-		color: $light-gray;
-	}
-
-	a {
-		color: #fff;
-	}
-	
-	#footer-widget {
-		.container {
-			div, nav {
-				@include span-columns(12);
-				@include media($tablet) {
-					@include span-columns(3);
-					@include omega(4n);
-				}
-			}
-		}
-	}
-	#footer-author {
-		
-		#company {
-			
-			@include span-columns(12);
-			@include media($tablet) {
-				@include span-columns(6);
-			}
-		}
-
-		#colophon {
-			
-			@include span-columns(12);
-			@include media($tablet) {
-				@include span-columns(6);
-				text-align: right;
-			}
-		}
-	}
+  padding-top: $base-spacing;
+  padding-bottom: $base-spacing;
+  background-color: $light-gray;
+  .colophon {
+    text-align: center;
+  }
 }

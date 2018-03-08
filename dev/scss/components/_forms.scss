@@ -1,49 +1,26 @@
-label {
-  font-weight: 400;
-  margin-bottom: $small-spacing/2;
-  display: inline-block;
+#{$all-text-inputs}, select, textarea {
+ @include padding($small-spacing);
+ min-height: auto;
+ margin-bottom: $base-spacing;
 }
-#{$all-text-inputs}, select {
-  background-color: transparent;
-  border: $base-border;
-  border-radius: $base-border-radius;
-  box-shadow: $form-box-shadow;
-  box-sizing: border-box;
-  transition: border-color $base-duration $base-timing;
-  width: 100%;
-  display: inline-block;
-  padding: $small-spacing;
-  font-size: $base-font-size;
-  margin-bottom: $small-spacing;
-  &:hover {
-    border-color: shade($base-border-color, 20%);
-  }
 
-  &:focus {
-    border-color: $action-color;
-    box-shadow: $form-box-shadow-focus;
-    outline: none;
-  }
 
-  &:disabled {
-    background-color: shade($base-background-color, 5%);
-    cursor: not-allowed;
-
-    &:hover {
-      border: $base-border;
+form {
+  .form-row {
+    position: relative;
+    label{
+      position: absolute;
+      top: $small-spacing;
+      left: $small-spacing;
+      transition: all $base-duration $base-timing;
+      color: $medium-gray;
+      font-weight: 400;
+      line-height: 1.2;
+      &.active {
+          top: -$base-spacing*0.75;
+          left: 0;
+          font-size: modular-scale(-1);
+      }
     }
   }
-
-  &::placeholder {
-    color: $medium-gray;
-  }
-
-}
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("https://cdnjs.cloudflare.com/ajax/libs/kule.lazy/3.1.161102/css/img/kule/select-arrow-small.png");
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
 }

@@ -1,10 +1,10 @@
 {
-  "name": "bourbon",
-  "version": "1.0.0",
+  "name": "html bourbon",
+  "version": "2.0.0",
   "authors": [
     "marcelbadua <bitterdash@gmail.com>"
   ],
-  "description": "_bourbon",
+  "description": "html bourbon",
   "main": "gulpfile.js",
   "moduleType": [
     "node"

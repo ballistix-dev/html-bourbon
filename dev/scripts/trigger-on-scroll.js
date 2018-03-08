@@ -1,17 +1,21 @@
-// $('*[data-element="scroll"]').each(function () {
+$(function() {
 
-// 	var element = $(this),
-// 		topPos = element.position().top;
+  $('*[data-element="scroll"]').each(function() {
 
-//     $(window).scroll(function () {
-            
-//         var scrollTop = $(this).scrollTop();
+    var element = $(this),
+      topPos = element.position().top;
 
-//         if ( topPos < scrollTop) {
-//             element.addClass('is-scrolled');
-//         } else {
-//             element.removeClass('is-scrolled');
-//         }
-//     });
+    $(window).scroll(function() {
 
-// });
+      var scrollTop = $(this).scrollTop();
+
+      if (topPos < scrollTop) {
+        element.addClass('is-scrolled');
+      } else {
+        element.removeClass('is-scrolled');
+      }
+    });
+
+  });
+
+});
