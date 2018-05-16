@@ -1,6 +1,6 @@
 @include font-face(
   "proxima-nova",
-  "../dist/font/proxima-nova/proxima-nova-thin",
+  "../font/proxima-nova/proxima-nova-thin",
   ("eot","ttf","woff2", "woff")
 ) {
   font-style: normal;
@@ -9,7 +9,7 @@
 
 @include font-face(
   "proxima-nova",
-  "../dist/font/proxima-nova/proxima-nova-regular",
+  "../font/proxima-nova/proxima-nova-regular",
   ("eot","ttf","woff2", "woff")
 ) {
   font-style: normal;
@@ -18,7 +18,7 @@
 
 @include font-face(
   "proxima-nova",
-  "../dist/font/proxima-nova/proxima-nova-semibold",
+  "../font/proxima-nova/proxima-nova-semibold",
   ("eot","ttf","woff2", "woff")
 ) {
   font-style: normal;
@@ -27,7 +27,7 @@
 
 @include font-face(
   "proxima-nova",
-  "../dist/font/proxima-nova/proxima-nova-bold",
+  "../font/proxima-nova/proxima-nova-bold",
   ("eot","ttf","woff2", "woff")
 ) {
   font-style: normal;

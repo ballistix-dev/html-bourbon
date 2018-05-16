@@ -14,9 +14,9 @@
             line-height: 1;
             margin: 0 $small-spacing/2;
             &.current {
-              background-color: $action-color;
+              background-color: $primary-color;
                 color: $light-gray;
-                border: 1px solid darken($action-color, 5%);
+                border: 1px solid darken($primary-color, 5%);
             }
         }
     }

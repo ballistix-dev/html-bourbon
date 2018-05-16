@@ -3,11 +3,11 @@
   padding-left: $base-spacing;
   padding-right: $base-spacing;
   width: 100%;
-  max-width: 1200px;
+  max-width: 72rem;
   margin: 0 auto;
 
   > .row {
-    @include desktop {
+    @include media($desktop-width) {
       margin-left: -$base-spacing;
       margin-right: -$base-spacing;
       display: flex;

@@ -1,13 +1,10 @@
-$_button-background-color: $danger-color;
-$_button-background-color-hover: shade($danger-color, 20%);
-
 #{$all-buttons}, .button {
   appearance: none;
   background-color: $_button-background-color;
   border: 0;
   border-radius: $base-border-radius;
-  //color: contrast-switch($_button-background-color);
-  color: $light-gray;
+  color: contrast-switch($_button-background-color);
+  //color: $light-gray;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
@@ -24,8 +21,8 @@ $_button-background-color-hover: shade($danger-color, 20%);
   white-space: nowrap;
 
   &:hover {
-    background-color: $_button-background-color-hover;
-    color: contrast-switch($_button-background-color-hover);
+    background-color: shade($_button-background-color, 20%);
+    color: contrast-switch( shade($_button-background-color, 20%));
   }
 
   &:focus {

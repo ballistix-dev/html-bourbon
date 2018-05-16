@@ -15,7 +15,7 @@ var paths = {
         dest: basePaths.dest + 'css/'
     },
     images: {
-        src: basePaths.src + 'psd/SUP-Innovation-landing-page-7-assets/',
+        src: basePaths.src + 'psd/NAV11526_situation-room-landing-page-assets/',
         dest: basePaths.dest + 'img/'
     }
 };

@@ -8,7 +8,7 @@
   .toggle-menu{
     float: right;
     background-color: transparent;
-    @include desktop {
+    @include media($desktop-width) {
       display: none;
     }
   }
@@ -17,7 +17,7 @@
     text-transform: uppercase;
     margin-top: $base-spacing;
     margin-bottom: $base-spacing;
-    @include desktop {
+    @include media($desktop-width) {
       font-size: modular-scale(2);
     }
   }
@@ -36,7 +36,7 @@
     background-color: rgba(0,0,0,0.95);
   }
 
-  @include desktop {
+    @include media($desktop-width) {
     .container {
       .row {
         align-items: center;

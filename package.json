@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "html bourbon",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-imagemin": "^4.1.0"
+  },
   "devDependencies": {
     "bourbon": "^5.0.0",
     "browser-sync": "^2.23.6",

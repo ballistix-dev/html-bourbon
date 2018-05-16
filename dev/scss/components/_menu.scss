@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    @include desktop {
+    @include media($desktop-width) {
       max-height: 100vh;
       display: table;
       > li {
@@ -25,7 +25,7 @@
           text-decoration: none;
           @include padding($small-spacing $base-spacing);
           &:hover, &.active {
-            background-color: $action-color;
+            background-color: $primary-color;
           }
         }
     }

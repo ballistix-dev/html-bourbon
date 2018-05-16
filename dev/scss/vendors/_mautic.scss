@@ -7,8 +7,8 @@
     display: block;
     @include padding($small-spacing);
     margin-bottom: $base-spacing;
-    border: 1px solid $action-color;
-    background-color: lighten($action-color, 20);
+    border: 1px solid $primary-color;
+    background-color: lighten($primary-color, 20);
 }
 .mauticform-innerform {
   opacity: 1;

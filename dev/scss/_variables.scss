@@ -1,4 +1,4 @@
-$base-font-family: 'proxima-nova', sans-serif;
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $heading-font-family: $base-font-family;
 
 // Line height
@@ -18,8 +18,11 @@ $light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: #0e76bc;
-$danger-color: #ef263a;
+$primary-color: #00314d;
+$secondary-color: #cec091;
+
+// Buttons
+$_button-background-color: $secondary-color;
 
 // Border
 $base-border-color: $light-gray;
@@ -30,7 +33,7 @@ $base-background-color: #fff;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Focus
-$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-color: transparentize($primary-color, 0.4);
 $focus-outline-width: 3px;
 $focus-outline: $focus-outline-width solid $focus-outline-color;
 $focus-outline-offset: 2px;
@@ -38,3 +41,6 @@ $focus-outline-offset: 2px;
 // Animations
 $base-duration: 250ms;
 $base-timing: ease;
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
