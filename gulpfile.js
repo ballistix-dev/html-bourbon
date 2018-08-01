@@ -15,7 +15,7 @@ var paths = {
         dest: basePaths.dest + 'css/'
     },
     images: {
-        src: basePaths.src + 'psd/NAV11526_situation-room-landing-page-assets/',
+        src: basePaths.src + 'assets/',
         dest: basePaths.dest + 'img/'
     }
 };
@@ -125,14 +125,13 @@ gulp.task('serve', ['styles', 'scripts', 'watch'], function () {
     if(basePaths.proxy) {
         browserSync.init({
             proxy: basePaths.proxy,
-            host: "192.168.0.107"
+            // host: "192.168.0.107"
         });
     } else {
         browserSync.init({
-            host: "192.168.0.107",
+            //host: "192.168.0.107",
             server: {
                 baseDir: "./"
-
             }
         });
     }
