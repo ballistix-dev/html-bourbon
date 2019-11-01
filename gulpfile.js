@@ -1,142 +1,79 @@
 // npm install --save-dev browser-sync gulp gulp-concat gulp-cssmin gulp-jquery-closure gulp-load-plugins gulp-notify gulp-plumber gulp-sass gulp-uglify gulp-util bourbon node-normalize-scss
 
+"use strict";
+const { series, parallel, src, dest, watch } = require("gulp");
+const autoprefixer = require("autoprefixer");
+const browserSync = require("browser-sync").create();
+const bourbon = require("bourbon").includePaths;
+const cssnano = require("cssnano");
+const plumber = require("gulp-plumber");
+const postcss = require("gulp-postcss");
+const rename = require("gulp-rename");
+const sass = require("gulp-sass");
+const concat = require('gulp-concat-util');
+const uglify = require("gulp-uglify");
+const c = require('ansi-colors');
+const log = require('fancy-log');
+const beeper = require('beeper');
 var basePaths = {
-    src: 'dev/',
-    dest: 'dist/',
-    proxy: ''
+  src: "dev/",
+  dest: "dist/"
 };
 var paths = {
-    scripts: {
-        src: basePaths.src + 'scripts/',
-        dest: basePaths.dest + 'js/'
-    },
-    styles: {
-        src: basePaths.src + 'scss/',
-        dest: basePaths.dest + 'css/'
-    },
-    images: {
-        src: basePaths.src + 'assets/',
-        dest: basePaths.dest + 'img/'
-    }
+  scripts: {
+    src: basePaths.src + "scripts/",
+    dest: basePaths.dest + "js/"
+  },
+  styles: {
+    src: basePaths.src + "styles/",
+    dest: basePaths.dest + "css/"
+  }
 };
-
-var appFiles = {
-    styles: paths.styles.src + '**/*.scss',
-    scripts: paths.scripts.src + '**/*.js',
-    files: ['./**/*.php', './**/*.html']
-};
-
-var gulp = require('gulp');
-
-var gutil = require('gulp-util');
-
-var plugins = require("gulp-load-plugins")({
-    pattern: ['gulp-*', 'gulp.*'],
-    replaceString: /\bgulp[\-.]/
-});
-
-var browserSync = require('browser-sync').create(),
-    reload = browserSync.reload;
-
-// Allows gulp --dev to be run for a more verbose output
-var isProduction = true;
-var sassStyle = 'compressed';
-var sourceMap = false;
-
-var normalize = require('node-normalize-scss').includePaths,
-    bourbon = require('bourbon').includePaths;
-
-if(gutil.env.dev === true) {
-    sassStyle = 'expanded';
-    sourceMap = true;
-    isProduction = false;
-}
-
 var reportError = function (error) {
-    var lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
-
-    plugins.notify({
-        title: 'Task Failed [' + error.plugin + ']',
-        message: lineNumber + 'See console.',
-        sound: true // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
-    }).write(error);
-
-    gutil.log(
-        '\n File:', gutil.colors.red(error.message)
-        );
-
+    beeper();
+    log(c.yellow(
+      `\n File: ${c.red.bold( error.relativePath + " " + error.line + ":" + error.column )}
+      \n Error: ${c.cyan(error.messageOriginal)}`));
     this.emit('end');
 };
+function styles(done) {
+  return src(paths.styles.src + "styles.scss")
+    .pipe(plumber({errorHandler: reportError}))
+    .pipe(sass({ outputStyle: "expanded", includePaths: [bourbon] }))
+    .pipe(dest(paths.styles.dest))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream({match: "**/*.css"}));
+    done();
+}
+function scripts(done) {
+  return src(paths.scripts.src + "**/*")
+    .pipe(plumber())
+    .pipe(concat("scripts.js"))
+    .pipe(concat.header('(function($) {\n'))
+    .pipe(concat.footer('\n})(jQuery);'))
+    .pipe(dest(paths.scripts.dest))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(uglify())
+    .pipe(dest(paths.scripts.dest))
+    done();
+}
+function reload(done) {
+  browserSync.reload();
+  done();
+}
+function serve() {
 
-gulp.task('styles', function(){
-
-    gulp.src( paths.styles.src + 'styles.scss' )
-
-        .pipe(plugins.plumber({
-            errorHandler: reportError
-        }))
-
-        .pipe(plugins.sass({
-            outputStyle: 'compressed',
-            includePaths: [''].concat(normalize, bourbon),
-            })
-        )
-        .pipe(plugins.concat('styles.min.css'))
-        .pipe(isProduction ? plugins.cssmin({ keepSpecialComments: 0}) : gutil.noop())
-        .pipe(gulp.dest(paths.styles.dest))
-        .pipe(browserSync.stream({match: '**/*.css'}));
-});
-
-gulp.task('scripts', function(){
-    gulp.src( appFiles.scripts )
-        .pipe(plugins.plumber())
-        .pipe(plugins.concat('scripts.min.js'))
-        .pipe(plugins.jqueryClosure())
-        .pipe(isProduction ? plugins.uglify() : gutil.noop())
-        .pipe(gulp.dest(paths.scripts.dest))
-        .pipe(browserSync.stream());
-});
-
-gulp.task('imagemin', () =>
-    gulp.src(paths.images.src + '*')
-        .pipe(plugins.imagemin([
-            plugins.imagemin.gifsicle({interlaced: true}),
-            plugins.imagemin.jpegtran({progressive: true}),
-            plugins.imagemin.optipng({optimizationLevel: 5}),
-            plugins.imagemin.svgo({
-                plugins: [
-                    {removeViewBox: true},
-                    {cleanupIDs: false}
-                ]
-            })
-        ]))
-        .pipe(gulp.dest(paths.images.dest))
-);
-
-
-gulp.task('watch', ['styles', 'scripts'], function(){
-    gulp.watch(appFiles.styles, ['styles']);
-    gulp.watch(appFiles.scripts, ['scripts']);
-});
-
-gulp.task('serve', ['styles', 'scripts', 'watch'], function () {
-
-
-    if(basePaths.proxy) {
-        browserSync.init({
-            proxy: basePaths.proxy,
-            // host: "192.168.0.107"
-        });
-    } else {
-        browserSync.init({
-            //host: "192.168.0.107",
-            server: {
-                baseDir: "./"
-            }
-        });
+  browserSync.init({
+    server: {
+        baseDir: "./"
     }
+  });
+  watch( paths.styles.src + "**/*.scss", styles);
+  watch( paths.scripts.src + "**/*.js", series(scripts, reload));
+  watch( "./**/*.html",reload);
+}
 
-    gulp.watch(appFiles.files).on('change', reload);
-});
-
-gulp.task('default', ['styles', 'scripts']);
+exports.serve = series(scripts, styles, serve);
+exports.default = parallel(scripts, styles);

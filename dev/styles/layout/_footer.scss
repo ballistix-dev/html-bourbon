@@ -1,0 +1,15 @@
+#site-footer
+{
+    margin-top: $base-spacing*4;
+    padding-top: $base-spacing*3;
+    padding-bottom: $base-spacing;
+
+    color: $light-gray;
+    background-color: $secondary-color;
+
+    mask-image: url("../img/mask-02.svg");
+    mask-repeat: no-repeat;
+    mask-position: 0 0;
+    mask-size: cover;
+
+}

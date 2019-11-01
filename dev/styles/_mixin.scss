@@ -1,0 +1,24 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+@mixin media($value) {
+  @media (min-width: #{$value}) {
+    @content;
+  }
+}
+@mixin overlay() {
+  position: relative;
+  z-index: 5000;
+
+  &:before {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    background-color: rgba(0,0,0,0.35);
+  }
+}

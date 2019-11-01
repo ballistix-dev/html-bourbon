@@ -1,0 +1,72 @@
+.float-media-left {
+    position: absolute;
+    z-index: -50;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+}
+
+.float-media-right {
+    position: absolute;
+    z-index: -50;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+}
+
+.hero {
+  padding-top: $base-spacing*8;
+  padding-bottom: $base-spacing*4;
+  text-align: center;
+  position: relative;
+  background-repeat: no-repeat!important;
+  background-position: 100% 0;
+
+  background-color: $tertiary-color;
+
+  mask-image: url("../img/mask-01.svg");
+  mask-repeat: no-repeat;
+  mask-position: bottom right;
+  mask-size: cover;
+
+  // &:before {
+  //   content: '';
+  //   position: fixed;
+  //   z-index: -50;
+  //   top: 20%;
+  //   right: auto;
+  //   bottom: auto;
+  //   left: 0;
+  //   background-image: url('../img/map-pin-01.png');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   width: 433.65px;
+  //   height: 218.7px;
+  // }
+  // &:after {
+  //   content: '';
+  //   position: fixed;
+  //   z-index: -50;
+  //   top: 20%;
+  //   right: 0;
+  //   bottom: auto;
+  //   left: auto;
+  //   background-image: url('../img/map-pin-02.png');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   width: 548.42px;
+  //   height: 290.7px;
+  // }
+  // * {
+  //   position: relative;
+  //   z-index: 1050;
+  // }
+  .widget-title {
+    font-size: modular-scale(4);
+  }
+  .textwidget {
+    font-size: modular-scale(0);
+  }
+}

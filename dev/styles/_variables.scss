@@ -1,0 +1,47 @@
+// Colors
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+$primary-color: #990007;
+$secondary-color: #32251C;
+$tertiary-color: #FFF5E9;
+
+$info-color: #276f86;
+$success-color: #43A047;
+$danger-color: #FF4D4D;
+// Globally change the base ratio
+$bourbon: (
+  //"modular-scale-ratio": 1.250, // Major Third
+  "modular-scale-ratio": 1.333, // Perfect Fourth
+  //"modular-scale-ratio": 1.500, // Perfect Fifth
+  //"modular-scale-ratio": 1.618, // Golden Ratio
+);
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,800&display=swap');
+$base-font-family: 'Noto Sans', sans-serif;
+$heading-font-family: 'Bitter', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1.6;
+$heading-line-height: 1.15;
+$base-font-weight: 400;
+$heading-font-weight: 700;
+// Font Colors
+$base-font-color: $dark-gray;
+$heading-font-color: $base-font-color;
+// Other Sizes
+$base-border-radius: 6px;
+$base-spacing: 1.5rem;
+$small-spacing: $base-spacing * 0.65;
+$base-z-index: 0;
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+// Background Colors
+$base-background-color: tint($light-gray, 85);
+$secondary-background-color: shade($base-border-color, 65);
+// Shadow
+$base-box-shadow: 5px 2px 10px 2px rgba(0,0,0,0.1);
+// Animations
+$base-duration: 250ms;
+$base-timing: ease;
