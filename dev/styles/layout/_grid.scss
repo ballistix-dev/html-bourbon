@@ -1,0 +1,8 @@
+.container {
+  @include grid-container;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+}

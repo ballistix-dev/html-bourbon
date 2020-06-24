@@ -1,8 +1,11 @@
-@import "mixin";
 
 @import "bourbon";
+@import "neat";
 
 @import "variables";
+
+@import "mixin";
+
 
 @import "components/layout";
 @import "components/typography";
@@ -14,9 +17,7 @@
 @import "components/pagination";
 @import "components/menu";
 @import "components/breadcrumb";
+@import "components/navigation";
 
-@import "class";
-
+@import "layout/grid";
 @import "layout/header";
-@import "layout/footer";
-@import "layout/home";

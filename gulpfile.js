@@ -5,6 +5,7 @@ const { series, parallel, src, dest, watch } = require("gulp");
 const autoprefixer = require("autoprefixer");
 const browserSync = require("browser-sync").create();
 const bourbon = require("bourbon").includePaths;
+const neat = require("bourbon-neat").includePaths;
 const cssnano = require("cssnano");
 const plumber = require("gulp-plumber");
 const postcss = require("gulp-postcss");
@@ -39,7 +40,7 @@ var reportError = function (error) {
 function styles(done) {
   return src(paths.styles.src + "styles.scss")
     .pipe(plumber({errorHandler: reportError}))
-    .pipe(sass({ outputStyle: "expanded", includePaths: [bourbon] }))
+    .pipe(sass({ outputStyle: "expanded", includePaths: [bourbon,neat] }))
     .pipe(dest(paths.styles.dest))
     .pipe(rename({ suffix: ".min" }))
     .pipe(postcss([autoprefixer(), cssnano()]))

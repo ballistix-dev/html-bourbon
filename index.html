@@ -17,12 +17,11 @@
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<div id="site-wrap">
-		<header id="site-header" role="banner" data-element="scroll">
-			<button class="toggle-menu" data-toggle="toggle-menu" data-target="#site-menu"><span>MENU</span></button>
+		<header id="site-header" class="header" role="banner" data-element="scroll">
+			<!-- <button class="toggle-menu" data-toggle="toggle-menu" data-target="#site-menu"><span>MENU</span></button> -->
 			<div class="container">
-				<div class="row">
 					<h1 class="brand">Brand</h1>
-					<nav id="site-menu">
+					<nav class="navigation">
 						<ul class="menu">
 							<li><a href="#menu1">Menu 1</a></li>
 							<li><a href="#menu2">Menu 2</a></li>
@@ -30,9 +29,6 @@
 							<li><a href="#menu4">Menu 4</a></li>
 						</ul>
 					</nav>
-
-				</div>
-				<!-- /.row -->
 			</div>
 			<!-- /.container -->
 		</header>
@@ -43,10 +39,10 @@
 			<section id="menu1">
 				<div class="container">
 					<div class="row">
-						<div class="col">
+						<div class="desktop-6">
 							<img src="http://via.placeholder.com/600x400" alt="">
 						</div>
-						<div class="col">
+						<div class="desktop-6">
 							<h3>Menu 1</h3>
 							<p>Praesent eu erat ut erat mattis auctor. Nam tempor ligula arcu, eu venenatis nulla lobortis ac. Phasellus blandit fringilla egestas. Sed quam massa, ultricies et mattis eget, varius id nisi. Curabitur ut erat vitae velit finibus porta. Suspendisse
 								potenti. Nullam consectetur elit et elit vehicula elementum. Sed vehicula efficitur ultrices. Duis pellentesque ultrices nisi at vestibulum.</p>
@@ -62,13 +58,13 @@
 
 			<section id="menu2">
 				<div class="container">
-					<div class="col">
+
 						<h3>Menu 2</h3>
 							<p>Aliquam erat volutpat. Fusce velit nisi, auctor at venenatis vel, dignissim at elit. Quisque dignissim, lacus eu tempus venenatis, libero ligula tincidunt augue, quis gravida diam ex in ante. Sed quis tortor a mauris dapibus pretium eget ut lacus.
 							Aenean vehicula elit vel pharetra ultricies. Ut suscipit nisl ut congue porta. Ut risus ipsum, interdum ac interdum gravida, cursus a purus.</p>
 						<p>Praesent eu erat ut erat mattis auctor. Nam tempor ligula arcu, eu venenatis nulla lobortis ac. Phasellus blandit fringilla egestas. Sed quam massa, ultricies et mattis eget, varius id nisi. Curabitur ut erat vitae velit finibus porta. Suspendisse
 							potenti. Nullam consectetur elit et elit vehicula elementum. Sed vehicula efficitur ultrices. Duis pellentesque ultrices nisi at vestibulum.</p>
-					</div>
+
 				</div>
 				<!-- /.container -->
 			</section>
@@ -78,12 +74,12 @@
 				<div class="container">
 					<h3>Menu 3</h3>
 					<div class="row">
-						<div class="col">
+						<div class="desktop-6">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus tellus ut leo rutrum pellentesque. Maecenas volutpat eget tellus non tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis
 								sed aliquam dolor. Aliquam sed justo efficitur massa egestas posuere. Sed a lorem pretium, vehicula odio nec, semper erat. Nullam nec mattis purus. In a condimentum velit, ut laoreet risus. Nulla mattis sagittis maximus. Duis cursus, dui sed dapibus
 								cursus, metus lorem semper justo, in interdum sapien urna ac odio.</p>
 							</div>
-							<div class="col">
+							<div class="desktop-6">
 								<p>Nunc sed bibendum massa. Nam nunc massa, scelerisque vitae faucibus non, molestie nec odio. Nunc velit felis, vehicula eu metus eu, mattis vestibulum mauris. Curabitur feugiat ligula turpis, at porta eros sodales hendrerit. Nam purus mi, finibus
 									a lorem non, porta sollicitudin turpis. Aenean viverra tincidunt gravida. Sed mollis sapien sed blandit bibendum. Morbi ornare vel dolor id molestie.</p>
 							</div>
@@ -98,16 +94,16 @@
 				<div class="container">
 					<h3>Menu 4</h3>
 					<div class="row">
-						<div class="col">
+						<div class="desktop-4">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus tellus ut leo rutrum pellentesque. Maecenas volutpat eget tellus non tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis
 								sed aliquam dolor. Aliquam sed justo efficitur massa egestas posuere. Sed a lorem pretium, vehicula odio nec, semper erat. Nullam nec mattis purus. In a condimentum velit, ut laoreet risus. Nulla mattis sagittis maximus. Duis cursus, dui sed dapibus
 								cursus, metus lorem semper justo, in interdum sapien urna ac odio.</p>
 							</div>
-							<div class="col">
+							<div class="desktop-4">
 								<p>Nunc sed bibendum massa. Nam nunc massa, scelerisque vitae faucibus non, molestie nec odio. Nunc velit felis, vehicula eu metus eu, mattis vestibulum mauris. Curabitur feugiat ligula turpis, at porta eros sodales hendrerit. Nam purus mi, finibus
 									a lorem non, porta sollicitudin turpis. Aenean viverra tincidunt gravida. Sed mollis sapien sed blandit bibendum. Morbi ornare vel dolor id molestie.</p>
 							</div>
-							<div class="col">
+							<div class="desktop-4">
 								<form action="">
 									<div class="entry">
 										<div class="form-row">
@@ -142,7 +138,7 @@
 		<footer id="site-footer">
 			<div class="container">
 				<div class="colophon">
-					<span>Company. All Rights Reserved.<br>Site by Ballistix.</span>
+					<span>Company. All Rights Reserved.</span>
 				</div>
 			</div>
 		</footer>

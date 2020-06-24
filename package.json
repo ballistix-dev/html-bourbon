@@ -3,7 +3,9 @@
   "version": "2.0.6",
   "description": "An HTML Boilerplate using bourbon",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "bourbon-neat": "^4.0.0"
+  },
   "devDependencies": {
     "ansi-colors": "latest",
     "autoprefixer": "latest",

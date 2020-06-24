@@ -70,3 +70,8 @@ a {
 
   &:focus {}
 }
+
+hr {
+  border: 0;
+  border-top: $base-border;
+}
