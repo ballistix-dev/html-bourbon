@@ -20,7 +20,9 @@
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
-    "gulp-uglify": "latest"
+    "gulp-uglify": "latest",
+    "node-sass": "^6.0.1",
+    "sass": "^1.36.0"
   },
   "scripts": {
     "test": "gulp serve"

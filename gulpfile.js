@@ -1,4 +1,4 @@
-// npm install --save-dev browser-sync gulp gulp-concat gulp-cssmin gulp-jquery-closure gulp-load-plugins gulp-notify gulp-plumber gulp-sass gulp-uglify gulp-util bourbon node-normalize-scss
+// npm install --save-dev browser-sync gulp gulp-concat gulp-cssmin gulp-jquery-closure gulp-load-plugins gulp-notify gulp-plumber gulp-sass gulp-uglify gulp-util bourbon node-normalize-scss node-sas
 
 "use strict";
 const { series, parallel, src, dest, watch } = require("gulp");
@@ -10,12 +10,12 @@ const cssnano = require("cssnano");
 const plumber = require("gulp-plumber");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('node-sass')); //require("gulp-sass");
 const concat = require('gulp-concat-util');
 const uglify = require("gulp-uglify");
 const c = require('ansi-colors');
 const log = require('fancy-log');
-const beeper = require('beeper');
+//const beeper = require('beeper');
 var basePaths = {
   src: "dev/",
   dest: "dist/"
@@ -31,16 +31,22 @@ var paths = {
   }
 };
 var reportError = function (error) {
-    beeper();
+    //beeper();
     log(c.yellow(
       `\n File: ${c.red.bold( error.relativePath + " " + error.line + ":" + error.column )}
       \n Error: ${c.cyan(error.messageOriginal)}`));
     this.emit('end');
 };
+
+console.log(bourbon);
+
 function styles(done) {
   return src(paths.styles.src + "styles.scss")
     .pipe(plumber({errorHandler: reportError}))
-    .pipe(sass({ outputStyle: "expanded", includePaths: [bourbon,neat] }))
+    .pipe(sass({
+      outputStyle: "expanded",
+      includePaths: [].concat(bourbon, neat),
+    }))
     .pipe(dest(paths.styles.dest))
     .pipe(rename({ suffix: ".min" }))
     .pipe(postcss([autoprefixer(), cssnano()]))
